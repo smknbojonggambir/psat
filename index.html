@@ -4,177 +4,363 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PSAT SMK Negeri Bojonggambir 2024/2025</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     body {
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); /* Gradien teal yang lebih lembut */
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menggunakan Roboto sebagai alternatif modern */
+      margin: 0;
+      padding: 20px 0; /* Padding atas bawah untuk body */
+      color: #37474f; /* Warna teks utama yang lebih gelap dan lembut */
+      min-height: 100vh;
+      display: flex;
+      align-items: center; /* Vertically center content */
     }
+
+    .container-custom {
+      max-width: 600px; /* Batas lebar container utama */
+      margin: auto;
+      padding: 0 15px;
+    }
+
+    header {
+      padding: 2rem 1rem 2.5rem; /* Padding lebih besar */
+      text-align: center;
+      margin-bottom: 2rem; /* Jarak dari header ke card pertama */
+    }
+
     header img {
-      width: 90px;
+      width: 90px; /* Sedikit lebih besar */
       height: 90px;
       object-fit: contain;
-      margin-bottom: 10px;
-      animation: fadeInDown 1s ease;
+      margin-bottom: 1rem; /* Jarak konsisten */
+      animation: fadeInScale 1s ease-out forwards;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 50%; /* Logo bulat jika cocok, atau sesuaikan */
+      background-color: #fff; /* Background putih untuk logo jika transparan */
+      padding: 5px; /* Sedikit padding di dalam logo */
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
+
     h1 {
-      font-size: 1.7rem;
-      color: #0d6efd;
-      font-weight: bold;
+      font-size: 1.8rem; /* Sedikit lebih besar */
+      color: #00796b; /* Warna teal tua untuk judul */
+      font-weight: 700;
       margin-bottom: 1rem;
+      line-height: 1.4;
     }
-    .info-text {
-      font-size: 1rem;
-      color: #444;
+
+    .info-text, .motivasi-text {
+      font-size: 0.95rem; /* Ukuran font standar */
+      color: #455a64; /* Warna abu-abu kebiruan */
+      max-width: 520px;
+      margin: 0.8rem auto 0;
+      line-height: 1.6; /* Keterbacaan lebih baik */
     }
+
     .motivasi-text {
-      font-style: italic;
+      font-style: normal; /* Tidak miring agar lebih mudah dibaca */
       font-weight: 500;
-      color: #2d3436;
+      color: #004d40; /* Teal lebih gelap untuk penekanan */
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.5); /* Latar belakang transparan untuk motivasi */
+      border-left: 4px solid #00796b; /* Aksen garis kiri */
+      border-radius: 4px;
     }
+
     .card {
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease-in-out;
+      border-radius: 16px; /* Border radius lebih besar */
+      box-shadow: 0 8px 25px rgba(0, 77, 64, 0.15); /* Shadow lebih halus dan berwarna */
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      padding: 2rem; /* Padding lebih besar di dalam card */
+      max-width: 500px;
+      margin: 2rem auto; /* Jarak antar card dan dari header */
+      background-color: #ffffff;
+      border: none; /* Hilangkan border default card */
     }
+
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-8px) scale(1.02); /* Efek angkat dan sedikit scale */
+      box-shadow: 0 12px 30px rgba(0, 77, 64, 0.2);
     }
-    .btn-primary, .btn-secondary {
+
+    label.form-label {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #004d40; /* Warna label yang konsisten dengan tema */
+      margin-bottom: 0.75rem; /* Jarak dari label ke select */
+    }
+
+    select.form-select {
+      font-size: 1rem;
+      padding: 0.6rem 1rem; /* Padding lebih nyaman */
       border-radius: 8px;
-      font-weight: 500;
+      border: 1px solid #80cbc4; /* Border warna teal muda */
+      background-color: #f0fdfa; /* Background select yang sangat muda */
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .btn-link {
-      background-color: #0d6efd;
+
+    select.form-select:focus {
+      border-color: #00796b;
+      box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25);
+    }
+
+    .btn { /* Styling dasar untuk semua tombol */
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 0.75rem; /* Padding tombol konsisten */
+      transition: all 0.3s ease; /* Transisi untuk semua properti */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem; /* Jarak antara ikon dan teks */
+    }
+
+    .btn-primary {
+      background-color: #00796b; /* Teal tua untuk tombol utama */
+      border-color: #00796b;
+    }
+
+    .btn-primary:hover {
+      background-color: #00695c; /* Sedikit lebih gelap saat hover */
+      border-color: #00695c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: #78909c; /* Abu-abu kebiruan untuk tombol sekunder */
+      border-color: #78909c;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #607d8b;
+      border-color: #607d8b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-link-custom { /* Ubah nama class agar tidak konflik dengan Bootstrap .btn-link */
+      display: flex; /* Sudah di .btn */
+      width: 100%;
+      text-align: center;
+      background-color: #009688; /* Teal standar untuk link buka soal */
       color: white;
       border-radius: 8px;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1rem; /* Konsisten */
+      padding: 0.6rem 0.75rem; /* Konsisten */
       text-decoration: none;
-      transition: background-color 0.3s;
+      margin-top: 0.75rem;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .btn-link:hover {
-      background-color: #0b5ed7;
+
+    .btn-link-custom:hover {
+      background-color: #00796b; /* Teal lebih gelap */
+      text-decoration: none;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Penyesuaian Responsif */
+    @media (max-width: 576px) {
+      body {
+        padding: 10px 0;
+      }
+      header {
+        padding: 1.5rem 0.5rem 2rem;
+      }
+      header img {
+        width: 70px;
+        height: 70px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .info-text, .motivasi-text {
+        font-size: 0.9rem;
+        max-width: 95%;
+      }
+      .card {
+        padding: 1.5rem;
+        margin: 1.5rem 10px; /* Margin samping pada mobile */
+        border-radius: 12px;
+      }
+      label.form-label {
+        font-size: 1rem;
+      }
+      select.form-select {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+      }
+      .btn, .btn-link-custom {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.6rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="container my-5">
-  <header class="text-center mb-4">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxG9fiEbEMjwP8saioIBzxJdwmWdhK9c0AyicZN1dhbGv3Yq5vPdwcJs3THDpzGnIY0SSqiuJWt89BMNs_Maa9xubYijbXcyw2Nr_rFgFVtAybxm10v44vOBfSpoLNDzEEzyY65fm8S9ovTDm52TMZDn-8Z1F7MsrEtPWGPZ50LyW97zqkzSTWT2kYyhJt/s320/logo-smk%20(2).png" alt="Logo SMK" />
-    <h1>PENILAIAN SUMATIF AKHIR TAHUN (PSAT)<br>SMK NEGERI BOJONGGAMBIR<br>TAHUN AJARAN 2024/2025</h1>
+  <div class="container-custom">
+    <header>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxG9fiEbEMjwP8saioIBzxJdwmWdhK9c0AyicZN1dhbGv3Yq5vPdwcJs3THDpzGnIY0SSqiuJWt89BMNs_Maa9xubYijbXcyw2Nr_rFgFVtAybxm10v44vOBfSpoLNDzEEzyY65fm8S9ovTDm52TMZDn-8Z1F7MsrEtPWGPZ50LyW97zqkzSTWT2kYyhJt/s320/logo-smk%20(2).png" alt="Logo SMK" />
+      <h1>PENILAIAN SUMATIF AKHIR TAHUN (PSAT)<br>SMK NEGERI BOJONGGAMBIR<br>TAHUN AJARAN 2024/2025</h1>
+      <p class="info-text">
+        Selamat datang di halaman resmi PSAT SMK Negeri Bojonggambir. Halaman ini disediakan untuk mempermudah siswa dalam mengakses soal-soal penilaian akhir tahun.
+      </p>
+      <p class="motivasi-text">
+        Jaga Integritas, Raih Prestasi! Kerjakan dengan jujur dan tunjukkan kemampuan terbaikmu.
+      </p>
+    </header>
 
-    <p class="info-text">
-      Selamat datang di halaman resmi PSAT SMK Negeri Bojonggambir. Halaman ini disediakan untuk mempermudah siswa dalam mengakses soal-soal penilaian akhir tahun berdasarkan kelas dan mata pelajaran masing-masing.
-    </p>
-    <p class="motivasi-text">
-      Tetap semangat dan jaga integritas dalam mengerjakan soal. Hasil yang baik lahir dari usaha yang jujur dan konsisten.
-    </p>
-  </header>
+    <div id="kelas-selection" class="card">
+      <label for="kelas" class="form-label">Pilih Kelas Anda:</label>
+      <select id="kelas" class="form-select mb-3" aria-label="Pilih Kelas">
+        <option value="" disabled selected>-- Silakan Pilih Kelas --</option>
+        <option value="x">Kelas X</option>
+        <option value="xi">Kelas XI</option>
+      </select>
+      <button id="btnPilihKelas" class="btn btn-primary w-100">
+        Lanjut <i class="bi bi-arrow-right-circle-fill"></i>
+      </button>
+    </div>
 
-  <div id="kelas-selection" class="card p-4 mx-auto" style="max-width: 500px;">
-    <label for="kelas" class="form-label fw-bold">Pilih Kelas:</label>
-    <select id="kelas" class="form-select mb-3">
-      <option value="" disabled selected>-- Pilih kelas --</option>
-      <option value="x">Kelas X</option>
-      <option value="xi">Kelas XI</option>
-    </select>
-    <button id="btnPilihKelas" class="btn btn-primary w-100">Lanjut</button>
+    <div id="mapel-selection" class="card d-none">
+      <label for="mapel" class="form-label">Pilih Mata Pelajaran:</label>
+      <select id="mapel" class="form-select mb-3" aria-label="Pilih Mata Pelajaran"></select>
+      <a id="linkMapel" href="#" target="_blank" class="btn btn-link-custom d-none" role="button">
+        <i class="bi bi-box-arrow-up-right"></i> Buka Soal
+      </a>
+      <button id="back-btn" class="btn btn-secondary w-100 mt-3">
+        <i class="bi bi-arrow-left-circle-fill"></i> Kembali
+      </button>
+    </div>
   </div>
 
-  <div id="mapel-selection" class="card p-4 mx-auto d-none" style="max-width: 500px;">
-    <label for="mapel" class="form-label fw-bold">Pilih Mata Pelajaran:</label>
-    <select id="mapel" class="form-select mb-3"></select>
-    <a id="linkMapel" href="#" target="_blank" class="btn-link d-none text-center py-2">Buka Soal</a>
-    <button id="back-btn" class="btn btn-secondary w-100 mt-3">Kembali</button>
-  </div>
-</div>
+  <script>
+    const dataLink = {
+      x: {
+        "PAIBP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Sunda": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Seni Rupa": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Informatika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "IPAS": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Dasar-dasar APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Dasar-dasar DKV 1": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Dasar Dasar DKV 2 & 3": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
+      },
+      xi: {
+        "PAIBP XI APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "PAIBP XI DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Sunda": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Konsentrasi APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Konsentrasi DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "PKK APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "PKK DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Mapel Pilihan APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
+        "Mapel Pilihan DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
+      }
+    };
 
-<script>
-const dataLink = {
-  x: {
-    "PAIBP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Sunda": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Seni Rupa": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Informatika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "IPAS": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Dasar-dasar APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Dasar-dasar DKV 1": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Dasar Dasar DKV 2 & 3": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
-  },
-  xi: {
-    "PAIBP XI APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "PAIBP XI DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Sunda": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Konsentrasi APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Konsentrasi DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "PKK APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "PKK DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Mapel Pilihan APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-    "Mapel Pilihan DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
-  }
-};
+    const kelasSelect = document.getElementById("kelas");
+    const mapelSelect = document.getElementById("mapel");
+    const btnKelas = document.getElementById("btnPilihKelas");
+    const linkMapel = document.getElementById("linkMapel");
+    const backBtn = document.getElementById("back-btn");
+    const kelasSection = document.getElementById("kelas-selection");
+    const mapelSection = document.getElementById("mapel-selection");
+    const linkMapelText = linkMapel.querySelector('span'); // Jika ingin mengubah teks di dalam link saja
 
-const kelasSelect = document.getElementById("kelas");
-const mapelSelect = document.getElementById("mapel");
-const btnKelas = document.getElementById("btnPilihKelas");
-const linkMapel = document.getElementById("linkMapel");
-const backBtn = document.getElementById("back-btn");
-const kelasSection = document.getElementById("kelas-selection");
-const mapelSection = document.getElementById("mapel-selection");
+    btnKelas.addEventListener("click", () => {
+      const kelas = kelasSelect.value;
+      if (!kelas) {
+        alert("Silakan pilih kelas terlebih dahulu.");
+        return;
+      }
+      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>'; // Default option
+      linkMapel.classList.add("d-none");
+      if (dataLink[kelas]) {
+        Object.keys(dataLink[kelas]).forEach((mapel) => {
+          const opt = document.createElement("option");
+          opt.value = mapel;
+          opt.textContent = mapel;
+          mapelSelect.appendChild(opt);
+        });
+        kelasSection.classList.add("d-none");
+        mapelSection.classList.remove("d-none");
+      } else {
+        alert("Data kelas tidak ditemukan.");
+      }
+    });
 
-btnKelas.addEventListener("click", () => {
-  const kelas = kelasSelect.value;
-  if (!kelas) return alert("Silakan pilih kelas!");
+    mapelSelect.addEventListener("change", () => {
+      const kelas = kelasSelect.value;
+      const mapel = mapelSelect.value;
+      if (kelas && mapel && dataLink[kelas][mapel]) {
+        linkMapel.href = dataLink[kelas][mapel];
+        // Untuk mengganti teks di dalam linkMapel tanpa menghilangkan ikon:
+        // Cari elemen teks di dalam linkMapel. Jika strukturnya ikon dulu baru teks,
+        // Anda bisa menggunakan linkMapel.childNodes[1].nodeValue atau bungkus teksnya dengan span.
+        // Saya akan asumsikan struktur <i...> Teks
+        // Jika Anda menambahkan span di HTML: <a ...><i ...></i> <span id="mapelText">Buka Soal</span></a>
+        // const mapelTextElement = document.getElementById("mapelText");
+        // if(mapelTextElement) mapelTextElement.textContent = `Buka Soal ${mapel}`;
+        
+        // Cara sederhana, mengganti seluruh konten, termasuk ikon (ikon harus ditambahkan lagi jika perlu)
+        // Atau, jika ikon sudah ada di HTML, kita hanya perlu memastikan teksnya.
+        // Karena ikon sudah ada di HTML <a ...><i ...></i> Buka Soal</a>, kita bisa lakukan ini:
+        const textNode = Array.from(linkMapel.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
+        if (textNode) {
+            textNode.textContent = ` Buka Soal ${mapel}`; // Perhatikan spasi di awal
+        } else {
+            // Jika tidak ada text node (misalnya, setelah ikon), tambahkan satu
+            linkMapel.appendChild(document.createTextNode(` Buka Soal ${mapel}`));
+        }
 
-  mapelSelect.innerHTML = "";
-  Object.keys(dataLink[kelas]).forEach(mapel => {
-    const opt = document.createElement("option");
-    opt.value = mapel;
-    opt.textContent = mapel;
-    mapelSelect.appendChild(opt);
-  });
+        linkMapel.classList.remove("d-none");
+      } else {
+        linkMapel.classList.add("d-none");
+      }
+    });
 
-  kelasSection.classList.add("d-none");
-  mapelSection.classList.remove("d-none");
-  linkMapel.classList.add("d-none");
-});
+    backBtn.addEventListener("click", () => {
+      mapelSection.classList.add("d-none");
+      kelasSection.classList.remove("d-none");
+      kelasSelect.value = "";
+      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
+      linkMapel.classList.add("d-none");
+    });
 
-mapelSelect.addEventListener("change", () => {
-  const kelas = kelasSelect.value;
-  const mapel = mapelSelect.value;
-  const link = dataLink[kelas][mapel];
-  if (link) {
-    linkMapel.href = link;
-    linkMapel.classList.remove("d-none");
-  } else {
-    linkMapel.classList.add("d-none");
-  }
-});
-
-backBtn.addEventListener("click", () => {
-  mapelSection.classList.add("d-none");
-  kelasSection.classList.remove("d-none");
-  mapelSelect.innerHTML = "";
-  linkMapel.classList.add("d-none");
-});
-</script>
+    // Inisialisasi select mapel dengan default option
+    mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
+  </script>
 
 </body>
 </html>
