@@ -1,274 +1,175 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PSAT SMK Negeri Bojonggambir 2024/2025</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <style>
-    /* ... (SEMUA CSS DARI HALAMAN UTAMA PSAT YANG SUDAH DIDESAIN ULANG) ... */
-    /* Tambahkan CSS untuk .page-footer dan .footer-link di sini */
-    body {
-      background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding-top: 20px; /* Adjusted padding */
-      padding-bottom: 20px;
-      color: #37474f;
-      min-height: 100vh;
-      /* display: flex; align-items: center; Dihapus agar footer bisa di bawah jika konten panjang */
-    }
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>PSAT SMK Negeri Bojonggambir 2024/2025 - Status Ujian</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ <style>
+   body {
+     background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); /* Gradien teal yang lembut */
+     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     min-height: 100vh; /* Memastikan body mengisi seluruh tinggi viewport */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 20px;
+     color: #37474f; /* Warna teks default yang lebih lembut */
+   }
 
-    .container-custom {
-      max-width: 600px;
-      margin: auto;
-      padding: 0 15px;
-    }
+   .card {
+     max-width: 520px; /* Sedikit lebih lebar untuk kenyamanan */
+     padding: 35px 40px; /* Padding lebih luas */
+     border-radius: 20px; /* Border radius lebih besar dan lembut */
+     box-shadow: 0 10px 30px rgba(0, 77, 64, 0.15); /* Shadow lebih halus dan berwarna tema */
+     background-color: #ffffff; /* Background putih solid untuk kejelasan maksimal */
+     animation: fadeInBounce 0.8s ease-out forwards;
+     border: none; /* Menghilangkan border default jika ada */
+   }
 
-    header {
-      padding: 2rem 1rem 2.5rem;
-      text-align: center;
-      margin-bottom: 1rem; /* Reduced margin to bring card closer */
-    }
+   @keyframes fadeInBounce {
+     0% {
+       opacity: 0;
+       transform: translateY(20px) scale(0.95);
+     }
+     70% {
+       opacity: 1;
+       transform: translateY(-5px) scale(1.02);
+     }
+     100% {
+       opacity: 1;
+       transform: translateY(0) scale(1);
+     }
+   }
 
-    header img {
-      width: 90px; height: 90px; object-fit: contain; margin-bottom: 1rem;
-      animation: fadeInScale 1s ease-out forwards;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 50%; background-color: #fff; padding: 5px;
-    }
+   .logo-smk {
+     width: 80px; /* Ukuran logo */
+     height: 80px;
+     object-fit: contain;
+     margin-bottom: 20px; /* Jarak dari logo ke teks */
+     border-radius: 50%;
+     background-color: #f8f9fa;
+     padding: 5px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+   }
 
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: translateY(-20px) scale(0.9); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
+   h1 {
+     font-size: 1.6rem; /* Sedikit disesuaikan */
+     color: #00695c; /* Warna teal lebih gelap untuk judul utama */
+     font-weight: 700;
+     margin-bottom: 0.25rem; /* Mengurangi jarak ke H2 pertama */
+     line-height: 1.3;
+   }
 
-    h1 {
-      font-size: 1.8rem; color: #00796b; font-weight: 700;
-      margin-bottom: 1rem; line-height: 1.4;
-    }
+   h2 {
+     font-size: 1.3rem; /* Sedikit disesuaikan */
+     font-weight: 500; /* Lebih ringan dari H1 */
+     margin-bottom: 0.25rem; /* Mengurangi jarak ke H2 berikutnya atau P */
+     color: #00796b; /* Warna teal standar */
+     line-height: 1.3;
+   }
+   h2.sub-tahun { /* Khusus untuk tahun ajaran */
+       margin-bottom: 2rem; /* Jarak lebih besar sebelum status */
+       font-size: 1.2rem;
+       color: #26a69a; /* Teal lebih muda */
+   }
 
-    .info-text, .motivasi-text {
-      font-size: 0.95rem; color: #455a64; max-width: 520px;
-      margin: 0.8rem auto 0; line-height: 1.6;
-    }
+   p.status {
+     font-size: 1.15rem; /* Ukuran font status disesuaikan */
+     font-weight: 600;
+     /* Warna untuk status "belum dimulai" - menggunakan nuansa biru/info */
+     color: #01579b; /* Biru tua untuk teks */
+     margin-top: 1.5rem; /* Jarak dari judul ke status */
+     padding: 15px 20px; /* Padding di dalam status box */
+     background-color: #e1f5fe; /* Background biru muda sangat lembut */
+     border-radius: 10px; /* Border radius untuk status box */
+     border-left: 5px solid #0288d1; /* Aksen garis biru di kiri */
+     display: flex; /* Untuk menyelaraskan ikon dan teks */
+     align-items: center;
+     justify-content: center;
+     text-align: left; /* Teks di dalam status box rata kiri */
+   }
 
-    .motivasi-text {
-      font-weight: 500; color: #004d40; padding: 10px;
-      background-color: rgba(255, 255, 255, 0.5);
-      border-left: 4px solid #00796b; border-radius: 4px;
-    }
+   p.status i {
+     font-size: 1.8rem; /* Ukuran ikon */
+     margin-right: 15px; /* Jarak ikon ke teks */
+     color: #0288d1; /* Warna ikon sama dengan border */
+   }
 
-    .card {
-      border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 77, 64, 0.15);
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-      padding: 2rem; max-width: 500px; margin: 1.5rem auto; /* Adjusted margin */
-      background-color: #ffffff; border: none;
-    }
+   .btn-outline-primary {
+     color: #00796b;
+     border-color: #00796b;
+     transition: all 0.3s ease;
+   }
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0, 77, 64, 0.2);
-    }
+   .btn-outline-primary:hover {
+     background-color: #00796b;
+     color: white;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   }
 
-    label.form-label {
-      font-weight: 600; font-size: 1.05rem; color: #004d40;
-      margin-bottom: 0.75rem;
-    }
+   .btn-outline-secondary {
+     color: #78909c;
+     border-color: #78909c;
+     transition: all 0.3s ease;
+   }
 
-    select.form-select {
-      font-size: 1rem; padding: 0.6rem 1rem; border-radius: 8px;
-      border: 1px solid #80cbc4; background-color: #f0fdfa;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
+   .btn-outline-secondary:hover {
+     background-color: #78909c;
+     color: white;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   }
 
-    select.form-select:focus {
-      border-color: #00796b;
-      box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25);
-    }
-
-    .btn {
-      border-radius: 8px; font-weight: 600; font-size: 1rem;
-      padding: 0.6rem 0.75rem; transition: all 0.3s ease;
-      display: flex; align-items: center; justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary { background-color: #00796b; border-color: #00796b; }
-    .btn-primary:hover {
-      background-color: #00695c; border-color: #00695c;
-      transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-secondary { background-color: #78909c; border-color: #78909c; color: white; }
-    .btn-secondary:hover {
-      background-color: #607d8b; border-color: #607d8b;
-      transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .btn-link-custom {
-      width: 100%; text-align: center; background-color: #009688;
-      color: white; border-radius: 8px; font-weight: 600;
-      font-size: 1rem; padding: 0.6rem 0.75rem; text-decoration: none;
-      margin-top: 0.75rem;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-link-custom:hover {
-      background-color: #00796b; text-decoration: none; color: white;
-      transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .page-footer {
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 2rem; /* Jarak dari card terakhir */
-      border-top: 1px solid #b2dfdb; /* Garis pemisah tipis */
-    }
-    .footer-link {
-      color: #004d40; /* Teal gelap */
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
-    }
-    .footer-link i {
-      margin-right: 6px;
-    }
-    .footer-link:hover {
-      color: #00796b; /* Teal lebih terang saat hover */
-      text-decoration: underline;
-    }
-
-    @media (max-width: 576px) {
-      body { padding-top: 10px; padding-bottom: 10px; }
-      header { padding: 1.5rem 0.5rem 2rem; margin-bottom: 0.5rem; }
-      header img { width: 70px; height: 70px; }
-      h1 { font-size: 1.5rem; }
-      .info-text, .motivasi-text { font-size: 0.9rem; max-width: 95%; }
-      .card { padding: 1.5rem; margin: 1rem 10px; border-radius: 12px; }
-      label.form-label { font-size: 1rem; }
-      select.form-select { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
-      .btn, .btn-link-custom { font-size: 0.95rem; padding: 0.5rem 0.6rem; }
-      .page-footer { margin-top: 1.5rem; }
-      .footer-link { font-size: 0.85rem; }
-    }
-  </style>
+   /* Responsive adjustments */
+   @media (max-width: 576px) {
+     .card {
+       padding: 25px 20px;
+       margin: 0 10px; /* Agar card tidak menempel di tepi layar kecil */
+     }
+     .logo-smk {
+       width: 60px;
+       height: 60px;
+       margin-bottom: 15px;
+     }
+     h1 {
+       font-size: 1.4rem;
+     }
+     h2 {
+       font-size: 1.1rem;
+     }
+     h2.sub-tahun {
+       font-size: 1rem;
+       margin-bottom: 1.5rem;
+     }
+     p.status {
+       font-size: 1rem;
+       padding: 12px 15px;
+     }
+     p.status i {
+       font-size: 1.5rem;
+       margin-right: 10px;
+     }
+   }
+ </style>
 </head>
 <body>
+ <div class="card">
+   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxG9fiEbEMjwP8saioIBzxJdwmWdhK9c0AyicZN1dhbGv3Yq5vPdwcJs3THDpzGnIY0SSqiuJWt89BMNs_Maa9xubYijbXcyw2Nr_rFgFVtAybxm10v44vOBfSpoLNDzEEzyY65fm8S9ovTDm52TMZDn-8Z1F7MsrEtPWGPZ50LyW97zqkzSTWT2kYyhJt/s320/logo-smk%20(2).png" alt="Logo SMK" class="logo-smk">
+   <h1>PENILAIAN SUMATIF AKHIR TAHUN (PSAT)</h1>
+   <h2>SMK NEGERI BOJONGGAMBIR</h2>
+   <h2 class="sub-tahun">TAHUN AJARAN 2024/2025</h2>
+   <p class="status">
+     <i class="bi bi-hourglass-split"></i> <span>Ujian belum dimulai.<br class="d-sm-none"> Silakan kembali sesuai jadwal yang ditentukan.</span>
+   </p>
+   <a href="https://smknbojonggambir.github.io/psat/" class="btn btn-outline-secondary mt-4">
+    <i class="bi bi-house-door-fill"></i> Kembali ke Halaman Utama
+   </a>
+ </div>
 
-  <div class="container-custom">
-    <header>
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxG9fiEbEMjwP8saioIBzxJdwmWdhK9c0AyicZN1dhbGv3Yq5vPdwcJs3THDpzGnIY0SSqiuJWt89BMNs_Maa9xubYijbXcyw2Nr_rFgFVtAybxm10v44vOBfSpoLNDzEEzyY65fm8S9ovTDm52TMZDn-8Z1F7MsrEtPWGPZ50LyW97zqkzSTWT2kYyhJt/s320/logo-smk%20(2).png" alt="Logo SMK" />
-      <h1>PENILAIAN SUMATIF AKHIR TAHUN (PSAT)<br>SMK NEGERI BOJONGGAMBIR<br>TAHUN AJARAN 2024/2025</h1>
-      <p class="info-text">
-        Selamat datang di halaman resmi PSAT SMK Negeri Bojonggambir. Halaman ini disediakan untuk mempermudah siswa dalam mengakses soal-soal penilaian akhir tahun.
-      </p>
-      <p class="motivasi-text">
-        Jaga Integritas, Raih Prestasi! Kerjakan dengan jujur dan tunjukkan kemampuan terbaikmu.
-      </p>
-    </header>
-
-    <div id="kelas-selection" class="card">
-      <label for="kelas" class="form-label">Pilih Kelas Anda:</label>
-      <select id="kelas" class="form-select mb-3" aria-label="Pilih Kelas">
-        <option value="" disabled selected>-- Silakan Pilih Kelas --</option>
-        <option value="x">Kelas X</option>
-        <option value="xi">Kelas XI</option>
-      </select>
-      <button id="btnPilihKelas" class="btn btn-primary w-100">
-        Lanjut <i class="bi bi-arrow-right-circle-fill"></i>
-      </button>
-    </div>
-
-    <div id="mapel-selection" class="card d-none">
-      <label for="mapel" class="form-label">Pilih Mata Pelajaran:</label>
-      <select id="mapel" class="form-select mb-3" aria-label="Pilih Mata Pelajaran"></select>
-      <a id="linkMapel" href="#" target="_blank" class="btn btn-link-custom d-none" role="button">
-        <i class="bi bi-box-arrow-up-right"></i> Buka Soal
-      </a>
-      <button id="back-btn" class="btn btn-secondary w-100 mt-3">
-        <i class="bi bi-arrow-left-circle-fill"></i> Kembali
-      </button>
-    </div>
-
-    <footer class="page-footer">
-      <a href="https://smknbojonggambir.sch.id/" target="_blank" class="footer-link">
-        <i class="bi bi-globe"></i> Kunjungi Website Resmi SMK Negeri Bojonggambir
-      </a>
-    </footer>
-  </div>
-
-  <script>
-    // ... (KODE JAVASCRIPT DARI HALAMAN UTAMA PSAT) ...
-    const dataLink = {
-      x: {
-        "PAIBP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        // ... (mapel lainnya)
-      },
-      xi: {
-        "PAIBP XI APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        // ... (mapel lainnya)
-      }
-    };
-
-    const kelasSelect = document.getElementById("kelas");
-    const mapelSelect = document.getElementById("mapel");
-    const btnKelas = document.getElementById("btnPilihKelas");
-    const linkMapel = document.getElementById("linkMapel");
-    const backBtn = document.getElementById("back-btn");
-    const kelasSection = document.getElementById("kelas-selection");
-    const mapelSection = document.getElementById("mapel-selection");
-
-    btnKelas.addEventListener("click", () => {
-      const kelas = kelasSelect.value;
-      if (!kelas) {
-        alert("Silakan pilih kelas terlebih dahulu.");
-        return;
-      }
-      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
-      linkMapel.classList.add("d-none");
-      if (dataLink[kelas]) {
-        Object.keys(dataLink[kelas]).forEach((mapel) => {
-          const opt = document.createElement("option");
-          opt.value = mapel;
-          opt.textContent = mapel;
-          mapelSelect.appendChild(opt);
-        });
-        kelasSection.classList.add("d-none");
-        mapelSection.classList.remove("d-none");
-      } else {
-        alert("Data kelas tidak ditemukan.");
-      }
-    });
-
-    mapelSelect.addEventListener("change", () => {
-      const kelas = kelasSelect.value;
-      const mapel = mapelSelect.value;
-      if (kelas && mapel && dataLink[kelas] && dataLink[kelas][mapel]) {
-        linkMapel.href = dataLink[kelas][mapel];
-        const textNode = Array.from(linkMapel.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
-        if (textNode) {
-            textNode.textContent = ` Buka Soal ${mapel}`;
-        } else {
-            linkMapel.appendChild(document.createTextNode(` Buka Soal ${mapel}`));
-        }
-        linkMapel.classList.remove("d-none");
-      } else {
-        linkMapel.classList.add("d-none");
-      }
-    });
-
-    backBtn.addEventListener("click", () => {
-      mapelSection.classList.add("d-none");
-      kelasSection.classList.remove("d-none");
-      kelasSelect.value = "";
-      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
-      linkMapel.classList.add("d-none");
-    });
-    mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
-  </script>
-
+ <script>
+   // Script tidak diperlukan untuk halaman statis ini.
+ </script>
 </body>
 </html>
