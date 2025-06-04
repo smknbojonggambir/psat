@@ -8,38 +8,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     body {
-      background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); /* Gradien teal yang lebih lembut */
-      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menggunakan Roboto sebagai alternatif modern */
+      background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 20px 0; /* Padding atas bawah untuk body */
-      color: #37474f; /* Warna teks utama yang lebih gelap dan lembut */
+      padding: 20px 0;
+      color: #37474f;
       min-height: 100vh;
-      display: flex;
-      align-items: center; /* Vertically center content */
+      /* display: flex; align-items: center; Dihapus agar tidak memaksa konten ke tengah jika konten panjang */
     }
 
     .container-custom {
-      max-width: 600px; /* Batas lebar container utama */
+      max-width: 90%; /* Lebar lebih besar untuk tabel */
       margin: auto;
       padding: 0 15px;
     }
 
     header {
-      padding: 2rem 1rem 2.5rem; /* Padding lebih besar */
+      padding: 2rem 1rem 2.5rem;
       text-align: center;
-      margin-bottom: 2rem; /* Jarak dari header ke card pertama */
+      margin-bottom: 2rem;
     }
 
     header img {
-      width: 90px; /* Sedikit lebih besar */
+      width: 90px;
       height: 90px;
       object-fit: contain;
-      margin-bottom: 1rem; /* Jarak konsisten */
+      margin-bottom: 1rem;
       animation: fadeInScale 1s ease-out forwards;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 50%; /* Logo bulat jika cocok, atau sesuaikan */
-      background-color: #fff; /* Background putih untuk logo jika transparan */
-      padding: 5px; /* Sedikit padding di dalam logo */
+      border-radius: 50%;
+      background-color: #fff;
+      padding: 5px;
     }
 
     @keyframes fadeInScale {
@@ -54,132 +53,124 @@
     }
 
     h1 {
-      font-size: 1.8rem; /* Sedikit lebih besar */
-      color: #00796b; /* Warna teal tua untuk judul */
+      font-size: 1.8rem;
+      color: #00796b;
       font-weight: 700;
       margin-bottom: 1rem;
       line-height: 1.4;
     }
-
-    .info-text, .motivasi-text {
-      font-size: 0.95rem; /* Ukuran font standar */
-      color: #455a64; /* Warna abu-abu kebiruan */
-      max-width: 520px;
-      margin: 0.8rem auto 0;
-      line-height: 1.6; /* Keterbacaan lebih baik */
+     h1.page-title { /* Class spesifik untuk judul utama halaman */
+        font-size: 1.8rem;
+        color: #00796b;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.4;
     }
 
+    .info-text, .motivasi-text {
+      font-size: 0.95rem;
+      color: #455a64;
+      max-width: 520px;
+      margin: 0.8rem auto 0;
+      line-height: 1.6;
+    }
+    .info-box { /* Style untuk petunjuk, mirip motivasi-text */
+        font-size: 0.95rem;
+        color: #455a64;
+        max-width: 80%; /* Disesuaikan agar tidak terlalu lebar */
+        margin: 1.5rem auto;
+        line-height: 1.6;
+        font-style: normal;
+        font-weight: 500;
+        color: #004d40;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-left: 4px solid #00796b;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+
     .motivasi-text {
-      font-style: normal; /* Tidak miring agar lebih mudah dibaca */
+      font-style: normal;
       font-weight: 500;
-      color: #004d40; /* Teal lebih gelap untuk penekanan */
+      color: #004d40;
       padding: 10px;
-      background-color: rgba(255, 255, 255, 0.5); /* Latar belakang transparan untuk motivasi */
-      border-left: 4px solid #00796b; /* Aksen garis kiri */
+      background-color: rgba(255, 255, 255, 0.5);
+      border-left: 4px solid #00796b;
       border-radius: 4px;
     }
 
-    .card {
-      border-radius: 16px; /* Border radius lebih besar */
-      box-shadow: 0 8px 25px rgba(0, 77, 64, 0.15); /* Shadow lebih halus dan berwarna */
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-      padding: 2rem; /* Padding lebih besar di dalam card */
-      max-width: 500px;
-      margin: 2rem auto; /* Jarak antar card dan dari header */
-      background-color: #ffffff;
-      border: none; /* Hilangkan border default card */
+    /* Styling untuk tabel dari kode sebelumnya, disesuaikan */
+    #jadwalPsatTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        background-color: white;
+        font-size: 0.9em; /* Sedikit perkecil font tabel agar muat */
+    }
+    #jadwalPsatTable th, #jadwalPsatTable td {
+        border: 1px solid #ddd;
+        padding: 10px; /* Padding disesuaikan */
+        text-align: left;
+    }
+    #jadwalPsatTable th {
+        background-color: #00796b; /* Warna header tabel disamakan dengan tema */
+        color: white;
+        font-weight: bold;
+    }
+    #jadwalPsatTable tr:nth-child(even) {
+        background-color: #e0f2f1; /* Warna baris genap disamakan tema */
+    }
+    #jadwalPsatTable tr:hover {
+        background-color: #b2dfdb; /* Warna hover disamakan tema */
+    }
+    .exam-action-button { /* Class baru untuk tombol di tabel */
+        display: inline-flex; /* Agar ikon dan teks sejajar */
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.375rem 0.75rem; /* Bootstrap sm button padding */
+        font-size: 0.875rem; /* Bootstrap sm button font size */
+        border-radius: 8px; /* Konsisten dengan .btn */
+        font-weight: 600; /* Konsisten dengan .btn */
+        color: white;
+        background-color: #009688; /* Warna dari .btn-link-custom lama */
+        border: none;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .exam-action-button:hover {
+        background-color: #00796b; /* Warna hover dari .btn-link-custom lama */
+        text-decoration: none;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.02); /* Efek angkat dan sedikit scale */
-      box-shadow: 0 12px 30px rgba(0, 77, 64, 0.2);
+    #currentTimeContainer {
+        text-align: center;
+        font-size: 1.1em; /* Disesuaikan */
+        font-weight: bold;
+        color: #333;
+        background-color: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+        max-width: 500px; /* Disesuaikan */
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    label.form-label {
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #004d40; /* Warna label yang konsisten dengan tema */
-      margin-bottom: 0.75rem; /* Jarak dari label ke select */
-    }
-
-    select.form-select {
-      font-size: 1rem;
-      padding: 0.6rem 1rem; /* Padding lebih nyaman */
-      border-radius: 8px;
-      border: 1px solid #80cbc4; /* Border warna teal muda */
-      background-color: #f0fdfa; /* Background select yang sangat muda */
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    select.form-select:focus {
-      border-color: #00796b;
-      box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25);
-    }
-
-    .btn { /* Styling dasar untuk semua tombol */
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.6rem 0.75rem; /* Padding tombol konsisten */
-      transition: all 0.3s ease; /* Transisi untuk semua properti */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem; /* Jarak antara ikon dan teks */
-    }
-
-    .btn-primary {
-      background-color: #00796b; /* Teal tua untuk tombol utama */
-      border-color: #00796b;
-    }
-
-    .btn-primary:hover {
-      background-color: #00695c; /* Sedikit lebih gelap saat hover */
-      border-color: #00695c;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-secondary {
-      background-color: #78909c; /* Abu-abu kebiruan untuk tombol sekunder */
-      border-color: #78909c;
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background-color: #607d8b;
-      border-color: #607d8b;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .btn-link-custom { /* Ubah nama class agar tidak konflik dengan Bootstrap .btn-link */
-      display: flex; /* Sudah di .btn */
-      width: 100%;
-      text-align: center;
-      background-color: #009688; /* Teal standar untuk link buka soal */
-      color: white;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem; /* Konsisten */
-      padding: 0.6rem 0.75rem; /* Konsisten */
-      text-decoration: none;
-      margin-top: 0.75rem;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-link-custom:hover {
-      background-color: #00796b; /* Teal lebih gelap */
-      text-decoration: none;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Penyesuaian Responsif */
+    /* Penyesuaian Responsif dari landing page asli */
     @media (max-width: 576px) {
       body {
         padding: 10px 0;
+      }
+      .container-custom {
+        max-width: 100%; /* Full width di mobile */
+        padding: 0 10px; /* Padding lebih kecil */
       }
       header {
         padding: 1.5rem 0.5rem 2rem;
@@ -188,28 +179,23 @@
         width: 70px;
         height: 70px;
       }
-      h1 {
+      h1.page-title { /* Target judul utama */
         font-size: 1.5rem;
       }
-      .info-text, .motivasi-text {
+      .info-text, .motivasi-text, .info-box {
         font-size: 0.9rem;
         max-width: 95%;
       }
-      .card {
-        padding: 1.5rem;
-        margin: 1.5rem 10px; /* Margin samping pada mobile */
-        border-radius: 12px;
+       #jadwalPsatTable th, #jadwalPsatTable td {
+        padding: 8px;
+        font-size: 0.85em; /* Perkecil lagi font tabel di mobile */
       }
-      label.form-label {
-        font-size: 1rem;
+      .exam-action-button {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
       }
-      select.form-select {
-        font-size: 0.95rem;
-        padding: 0.5rem 0.8rem;
-      }
-      .btn, .btn-link-custom {
-        font-size: 0.95rem;
-        padding: 0.5rem 0.6rem;
+      #currentTimeContainer {
+        font-size: 1em;
       }
     }
   </style>
@@ -219,7 +205,7 @@
   <div class="container-custom">
     <header>
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxG9fiEbEMjwP8saioIBzxJdwmWdhK9c0AyicZN1dhbGv3Yq5vPdwcJs3THDpzGnIY0SSqiuJWt89BMNs_Maa9xubYijbXcyw2Nr_rFgFVtAybxm10v44vOBfSpoLNDzEEzyY65fm8S9ovTDm52TMZDn-8Z1F7MsrEtPWGPZ50LyW97zqkzSTWT2kYyhJt/s320/logo-smk%20(2).png" alt="Logo SMK" />
-      <h1>PENILAIAN SUMATIF AKHIR TAHUN (PSAT)<br>SMK NEGERI BOJONGGAMBIR<br>TAHUN AJARAN 2024/2025</h1>
+      <h1 class="page-title">PENILAIAN SUMATIF AKHIR TAHUN (PSAT)<br>SMK NEGERI BOJONGGAMBIR<br>TAHUN AJARAN 2024/2025</h1>
       <p class="info-text">
         Selamat datang di halaman resmi PSAT SMK Negeri Bojonggambir. Halaman ini disediakan untuk mempermudah siswa dalam mengakses soal-soal penilaian akhir tahun.
       </p>
@@ -228,138 +214,185 @@
       </p>
     </header>
 
-    <div id="kelas-selection" class="card">
-      <label for="kelas" class="form-label">Pilih Kelas Anda:</label>
-      <select id="kelas" class="form-select mb-3" aria-label="Pilih Kelas">
-        <option value="" disabled selected>-- Silakan Pilih Kelas --</option>
-        <option value="x">Kelas X</option>
-        <option value="xi">Kelas XI</option>
-      </select>
-      <button id="btnPilihKelas" class="btn btn-primary w-100">
-        Lanjut <i class="bi bi-arrow-right-circle-fill"></i>
-      </button>
+    <div id="currentTimeContainer">
+        Waktu Saat Ini (WIB): <span id="currentTimeDisplay">Memuat...</span>
     </div>
 
-    <div id="mapel-selection" class="card d-none">
-      <label for="mapel" class="form-label">Pilih Mata Pelajaran:</label>
-      <select id="mapel" class="form-select mb-3" aria-label="Pilih Mata Pelajaran"></select>
-      <a id="linkMapel" href="#" target="_blank" class="btn btn-link-custom d-none" role="button">
-        <i class="bi bi-box-arrow-up-right"></i> Buka Soal
-      </a>
-      <button id="back-btn" class="btn btn-secondary w-100 mt-3">
-        <i class="bi bi-arrow-left-circle-fill"></i> Kembali
-      </button>
+    <div class="info-box">
+        <p><strong>Petunjuk:</strong> Silakan klik tombol "Buka Ujian" pada mata pelajaran yang sesuai dengan jadwal dan kelas Anda. Link akan aktif sesuai dengan waktu ujian.</p>
+    </div>
+
+    <div class="table-responsive"> <table id="jadwalPsatTable" class="table table-striped table-hover"> <thead>
+                <tr>
+                    <th>Hari/Tanggal</th>
+                    <th>Waktu</th>
+                    <th>Kelas</th>
+                    <th>Mata Pelajaran</th>
+                    <th>Link Ujian</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const dataLink = {
-      x: {
-        "PAIBP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/sudah-berakhir.html",
-        "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Bahasa Sunda": "https://forms.gle/dZBSPkX6YGXAGYFa8",
-        "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Seni Rupa": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Informatika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "IPAS": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Dasar-dasar APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Dasar-dasar DKV 1": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Dasar Dasar DKV 2 & 3": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
-      },
-      xi: {
-        "PAIBP XI APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "PAIBP XI DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Pendidikan Pancasila": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Bahasa Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Bahasa Sunda": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Matematika": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Bahasa Inggris": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Sejarah Indonesia": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "PJOK": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Konsentrasi APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Konsentrasi DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "PKK APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "PKK DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Mapel Pilihan APHP": "https://smknbojonggambir.github.io/psat/belum-dimulai.html",
-        "Mapel Pilihan DKV": "https://smknbojonggambir.github.io/psat/belum-dimulai.html"
-      }
-    };
+    const belumDimulaiUrl = "https://smknbojonggambir.github.io/psat/belum-dimulai.html";
+    const sudahBerakhirUrl = "https://smknbojonggambir.github.io/psat/sudah-berakhir.html";
 
-    const kelasSelect = document.getElementById("kelas");
-    const mapelSelect = document.getElementById("mapel");
-    const btnKelas = document.getElementById("btnPilihKelas");
-    const linkMapel = document.getElementById("linkMapel");
-    const backBtn = document.getElementById("back-btn");
-    const kelasSection = document.getElementById("kelas-selection");
-    const mapelSection = document.getElementById("mapel-selection");
-    const linkMapelText = linkMapel.querySelector('span'); // Jika ingin mengubah teks di dalam link saja
+    const scheduleData = [
+        // Selasa, 10 Juni 2025
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X APHP", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://forms.gle/QVSneo9pnqy5C2ym9", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI APHP", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://forms.gle/Wu9YbEjpPvEVaCXj8", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV1", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://forms.gle/QVSneo9pnqy5C2ym9", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV2", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://forms.gle/QVSneo9pnqy5C2ym9", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV3", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://forms.gle/QVSneo9pnqy5C2ym9", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI DKV", mapel: "Pendidikan Agama dan Budi Pekerti", actualLink: "https://docs.google.com/forms/d/e/1FAIpQLScdPlGOWoEIojo1mOoL-VVxs3sUyhhp4mR4NNDMwLVpHCvYUA/viewform", tanggal: "10 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X APHP", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/5R1bQAtGutgnqc6F7", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI APHP", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/7ws6S169yUNXpP9FA", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV1", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/5R1bQAtGutgnqc6F7", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV2", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/5R1bQAtGutgnqc6F7", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV3", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/5R1bQAtGutgnqc6F7", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI DKV", mapel: "Bahasa Indonesia", actualLink: "https://forms.gle/7ws6S169yUNXpP9FA", tanggal: "10 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X APHP", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/qd3gPrSHsTsGHpst5", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "XI APHP", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/dvaDExfoqR7d29wQ7", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV1", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/qd3gPrSHsTsGHpst5", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV2", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/qd3gPrSHsTsGHpst5", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV3", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/qd3gPrSHsTsGHpst5", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Selasa, 10 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "XI DKV", mapel: "Sejarah Indonesia", actualLink: "https://forms.gle/dvaDExfoqR7d29wQ7", tanggal: "10 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        // Rabu, 11 Juni 2025
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X APHP", mapel: "PPKN", actualLink: "https://forms.gle/5DSWxnrENgaE7AHp6", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI APHP", mapel: "PPKN", actualLink: "https://forms.gle/v71vdEoyNGVKTLPN8", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV1", mapel: "PPKN", actualLink: "https://forms.gle/5DSWxnrENgaE7AHp6", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV2", mapel: "PPKN", actualLink: "https://forms.gle/5DSWxnrENgaE7AHp6", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV3", mapel: "PPKN", actualLink: "https://forms.gle/5DSWxnrENgaE7AHp6", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI DKV", mapel: "PPKN", actualLink: "https://forms.gle/v71vdEoyNGVKTLPN8", tanggal: "11 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X APHP", mapel: "PJOK", actualLink: "https://forms.gle/swPAbxpVNsdXHdp1A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI APHP", mapel: "PJOK", actualLink: "https://forms.gle/ti4Z5bgk3V9gLDW8A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV1", mapel: "PJOK", actualLink: "https://forms.gle/swPAbxpVNsdXHdp1A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV2", mapel: "PJOK", actualLink: "https://forms.gle/swPAbxpVNsdXHdp1A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV3", mapel: "PJOK", actualLink: "https://forms.gle/swPAbxpVNsdXHdp1A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI DKV", mapel: "PJOK", actualLink: "https://forms.gle/ti4Z5bgk3V9gLDW8A", tanggal: "11 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV1", mapel: "Seni Budaya (Seni Rupa)", actualLink: "https://forms.gle/g28T2rtig5ebm3x89", tanggal: "11 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV2", mapel: "Seni Budaya (Seni Rupa)", actualLink: "https://forms.gle/g28T2rtig5ebm3x89", tanggal: "11 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Rabu, 11 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV3", mapel: "Seni Budaya (Seni Rupa)", actualLink: "https://forms.gle/g28T2rtig5ebm3x89", tanggal: "11 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        // Kamis, 12 Juni 2025
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X APHP", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/f2AyxJVe1k9JUPNI8", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI APHP", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/AZ84jVK7udkpFnRN9", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV1", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/f2AyxJVe1k9JUPNI8", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV2", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/f2AyxJVe1k9JUPNI8", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV3", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/f2AyxJVe1k9JUPNI8", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI DKV", mapel: "Bahasa Inggris", actualLink: "https://forms.gle/AZ84jVK7udkpFnRN9", tanggal: "12 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X APHP", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/dZBSPkX6YGXAGYFa8", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI APHP", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/722RGdgBhFWKzKCY7", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV1", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/dZBSPkX6YGXAGYFa8", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV2", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/dZBSPkX6YGXAGYFa8", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV3", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/dZBSPkX6YGXAGYFa8", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI DKV", mapel: "Bahasa Sunda", actualLink: "https://forms.gle/722RGdgBhFWKzKCY7", tanggal: "12 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X APHP", mapel: "IPAS", actualLink: "https://forms.gle/qo3ef7DT7Qhi6pDW8", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "XI APHP", mapel: "Agribisnis Pengolahan Hasil Pertanian", actualLink: "https://forms.gle/J3qkeqoHeg7c4NTm8", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV1", mapel: "IPAS", actualLink: "https://forms.gle/qo3ef7DT7Qhi6pDW8", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV2", mapel: "IPAS", actualLink: "https://forms.gle/qo3ef7DT7Qhi6pDW8", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "X DKV3", mapel: "IPAS", actualLink: "https://forms.gle/qo3ef7DT7Qhi6pDW8", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        { hariTanggalDisplay: "Kamis, 12 Juni 2025", waktuDisplay: "11.30-13.00", kelas: "XI DKV", mapel: "Desain Komunikasi Visual", actualLink: "https://forms.gle/vTFro3HWnxXd27Hn7", tanggal: "12 Juni 2025", jamMulai: "11:30", jamSelesai: "13:00" },
+        // Jumat, 13 Juni 2025
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X APHP", mapel: "Matematika", actualLink: "https://forms.gle/3PEd8LQP5SeFQKRF8", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI APHP", mapel: "Matematika", actualLink: "https://forms.gle/igwQwnPBxeDQwa3F7", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV1", mapel: "Matematika", actualLink: "https://forms.gle/3PEd8LQP5SeFQKRF8", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV2", mapel: "Matematika", actualLink: "https://forms.gle/3PEd8LQP5SeFQKRF8", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "X DKV3", mapel: "Matematika", actualLink: "https://forms.gle/3PEd8LQP5SeFQKRF8", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "08.00-09.30", kelas: "XI DKV", mapel: "Matematika", actualLink: "https://forms.gle/igwQwnPBxeDQwa3F7", tanggal: "13 Juni 2025", jamMulai: "08:00", jamSelesai: "09:30" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X APHP", mapel: "INFORMATIKA", actualLink: "http://tiny.cc/psatinformatika", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI APHP", mapel: "Digital Branding (Mata Pelajaran Pilihan)", actualLink: "https://forms.gle/vYBaGbDvTMU9BknY9", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV1", mapel: "INFORMATIKA", actualLink: "http://tiny.cc/psatinformatika", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV2", mapel: "INFORMATIKA", actualLink: "http://tiny.cc/psatinformatika", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "X DKV3", mapel: "INFORMATIKA", actualLink: "http://tiny.cc/psatinformatika", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "09.45-11.15", kelas: "XI DKV", mapel: "Fotografi dan Videografi (Mata Pelajaran Pilihan)", actualLink: "https://forms.gle/BMDKRML7bJ4vaF498", tanggal: "13 Juni 2025", jamMulai: "09:45", jamSelesai: "11:15" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "X APHP", mapel: "Dasar-Dasar Agribisnis Pengolahan Hasil Pertanian (Dasar-dasar APHP)", actualLink: "https://forms.gle/RQBK22hz2katxhmKA", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "XI APHP", mapel: "Projek Kreatif dan Kewirausahaan", actualLink: "https://forms.gle/JfcVsbkm1zQ84qiS9", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "X DKV1", mapel: "Dasar-Dasar Desain Komunikasi Visual (Dasar-dasar DKV)", actualLink: "http://tiny.cc/ddkv1", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "X DKV2", mapel: "Dasar-Dasar Desain Komunikasi Visual (Dasar-dasar DKV)", actualLink: "https://bit.ly/PSAT-X-DKV23", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "X DKV3", mapel: "Dasar-Dasar Desain Komunikasi Visual (Dasar-dasar DKV)", actualLink: "https://bit.ly/PSAT-X-DKV23", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" },
+        { hariTanggalDisplay: "Jumat, 13 Juni 2025", waktuDisplay: "12.30-13.45", kelas: "XI DKV", mapel: "Projek Kreatif dan Kewirausahaan", actualLink: "https://forms.gle/p4vtVriJBF1H7ggq7", tanggal: "13 Juni 2025", jamMulai: "12:30", jamSelesai: "13:45" }
+    ];
 
-    btnKelas.addEventListener("click", () => {
-      const kelas = kelasSelect.value;
-      if (!kelas) {
-        alert("Silakan pilih kelas terlebih dahulu.");
-        return;
-      }
-      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>'; // Default option
-      linkMapel.classList.add("d-none");
-      if (dataLink[kelas]) {
-        Object.keys(dataLink[kelas]).forEach((mapel) => {
-          const opt = document.createElement("option");
-          opt.value = mapel;
-          opt.textContent = mapel;
-          mapelSelect.appendChild(opt);
+    function parseDateTime(tanggalBagian, jamBagian) {
+        const [day, monthName, year] = tanggalBagian.split(" ");
+        const monthMap = {
+            "Januari": 0, "Februari": 1, "Maret": 2, "April": 3, "Mei": 4, "Juni": 5,
+            "Juli": 6, "Agustus": 7, "September": 8, "Oktober": 9, "November": 10, "Desember": 11
+        };
+        const [hours, minutes] = jamBagian.split(":").map(Number);
+        return new Date(parseInt(year), monthMap[monthName], parseInt(day), hours, minutes, 0);
+    }
+
+    function populateTable() {
+        const tbody = document.getElementById('jadwalPsatTable').getElementsByTagName('tbody')[0];
+        scheduleData.forEach(item => {
+            const row = tbody.insertRow();
+            row.insertCell().textContent = item.hariTanggalDisplay;
+            row.insertCell().textContent = item.waktuDisplay;
+            row.insertCell().textContent = item.kelas;
+            row.insertCell().textContent = item.mapel;
+
+            const linkCell = row.insertCell();
+            const linkElement = document.createElement('a');
+            linkElement.href = "#";
+            linkElement.className = 'exam-action-button'; // Menggunakan class baru untuk tombol
+            linkElement.innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Buka Ujian';
+
+            linkElement.dataset.actualLink = item.actualLink;
+            linkElement.dataset.tanggal = item.tanggal;
+            linkElement.dataset.jamMulai = item.jamMulai;
+            linkElement.dataset.jamSelesai = item.jamSelesai;
+
+            linkElement.addEventListener('click', function(event) {
+                event.preventDefault();
+                handleLinkClick(this.dataset.actualLink, this.dataset.tanggal, this.dataset.jamMulai, this.dataset.jamSelesai);
+            });
+            linkCell.appendChild(linkElement);
         });
-        kelasSection.classList.add("d-none");
-        mapelSection.classList.remove("d-none");
-      } else {
-        alert("Data kelas tidak ditemukan.");
-      }
-    });
+    }
 
-    mapelSelect.addEventListener("change", () => {
-      const kelas = kelasSelect.value;
-      const mapel = mapelSelect.value;
-      if (kelas && mapel && dataLink[kelas][mapel]) {
-        linkMapel.href = dataLink[kelas][mapel];
-        // Untuk mengganti teks di dalam linkMapel tanpa menghilangkan ikon:
-        // Cari elemen teks di dalam linkMapel. Jika strukturnya ikon dulu baru teks,
-        // Anda bisa menggunakan linkMapel.childNodes[1].nodeValue atau bungkus teksnya dengan span.
-        // Saya akan asumsikan struktur <i...> Teks
-        // Jika Anda menambahkan span di HTML: <a ...><i ...></i> <span id="mapelText">Buka Soal</span></a>
-        // const mapelTextElement = document.getElementById("mapelText");
-        // if(mapelTextElement) mapelTextElement.textContent = `Buka Soal ${mapel}`;
-        
-        // Cara sederhana, mengganti seluruh konten, termasuk ikon (ikon harus ditambahkan lagi jika perlu)
-        // Atau, jika ikon sudah ada di HTML, kita hanya perlu memastikan teksnya.
-        // Karena ikon sudah ada di HTML <a ...><i ...></i> Buka Soal</a>, kita bisa lakukan ini:
-        const textNode = Array.from(linkMapel.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
-        if (textNode) {
-            textNode.textContent = ` Buka Soal ${mapel}`; // Perhatikan spasi di awal
+    function handleLinkClick(actualLink, tanggal, jamMulai, jamSelesai) {
+        const now = new Date();
+        const startTime = parseDateTime(tanggal, jamMulai);
+        const endTime = parseDateTime(tanggal, jamSelesai);
+
+        if (now < startTime) {
+            window.location.href = belumDimulaiUrl;
+        } else if (now > endTime) {
+            window.location.href = sudahBerakhirUrl;
         } else {
-            // Jika tidak ada text node (misalnya, setelah ikon), tambahkan satu
-            linkMapel.appendChild(document.createTextNode(` Buka Soal ${mapel}`));
+            window.open(actualLink, '_blank');
         }
+    }
 
-        linkMapel.classList.remove("d-none");
-      } else {
-        linkMapel.classList.add("d-none");
-      }
+    function updateCurrentTimeDisplay() {
+        const now = new Date();
+        const options = {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            timeZone: 'Asia/Jakarta',
+            hour12: false
+        };
+        try {
+             document.getElementById('currentTimeDisplay').textContent = now.toLocaleString('id-ID', options);
+        } catch (e) {
+             document.getElementById('currentTimeDisplay').textContent = now.toLocaleString('id-ID', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+             }) + " (Waktu Lokal Browser)";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        populateTable();
+        updateCurrentTimeDisplay();
+        setInterval(updateCurrentTimeDisplay, 1000);
     });
-
-    backBtn.addEventListener("click", () => {
-      mapelSection.classList.add("d-none");
-      kelasSection.classList.remove("d-none");
-      kelasSelect.value = "";
-      mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
-      linkMapel.classList.add("d-none");
-    });
-
-    // Inisialisasi select mapel dengan default option
-    mapelSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Pelajaran --</option>';
   </script>
 
 </body>
