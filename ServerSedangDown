@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pemberitahuan Server</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fef6e4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .notice {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 2px solid #ffeeba;
+      border-radius: 15px;
+      padding: 30px 40px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .notice h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    .timer {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #d63333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">
+    <h1>⚠️ Server Sedang Down</h1>
+    <p>Kami sedang mengalami gangguan teknis.</p>
+    <p>Silakan hapus <strong>history browser</strong> atau cache Anda terlebih dahulu.</p>
+    <p>Setelah itu, mohon <strong>tunggu selama 10 menit</strong> sebelum mencoba kembali.</p>
+    <p class="timer">⏳ Harap bersabar dan tetap tenang.</p>
+    <p>Terima kasih atas pengertiannya.</p>
+  </div>
+</body>
+</html>
