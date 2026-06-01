@@ -453,7 +453,7 @@
                 option.value = hari; // e.g., "Selasa"
                 // Ambil hariTanggalDisplay dari item pertama yang cocok untuk tampilan lengkap
                 const firstMatch = filteredByKelas.find(item => item.hariAlias === hari);
-                option.textContent = firstMatch ? firstMatch.hariTanggalDisplay : hari; // Menampilkan "Selasa, 10 Juni 2025"
+                option.textContent = firstMatch ? firstMatch.hariTanggalDisplay : hari; // Menampilkan "Selasa, 02 Juni 2026"
                 hariSelect.appendChild(option);
             });
             kelasSelectionCard.classList.add("d-none");
